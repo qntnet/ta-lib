@@ -1,0 +1,26 @@
+package:
+  name: "talib"
+  version: "0.0.1"
+
+source:
+  path: .
+
+build:
+  number: 0
+#  script: "/bin/bash build.sh"
+
+requirements:
+  host:
+  - pip
+  - python=3.*
+  - setuptools
+  - numpy=1.16.*
+  - cython=0.29.*
+  - cmake
+  - gcc
+
+  run:
+  - numpy=1.16.*
+  - cython=0.29.*
+
+  #  - conda-forge::python-avro=1.8.*

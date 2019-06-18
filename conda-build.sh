@@ -1,13 +1,10 @@
 #!/bin/bash
 
-#conda install conda-build
-
+# conda install conda-build
 
 conda build purge
 
-rm -rfv qnt-*
-rm -rfv src/*.gz
-rm -rfv src/*.csv
+rm -rfv ta-lib-*
 
 conda-build .
 

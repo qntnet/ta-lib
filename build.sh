@@ -1,14 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-TA_PATH=$(realpath build)
-
-cd orig/ta-lib
-./configure  --prefix=$TA_PATH
+pushd library
+./configure --prefix=$PREFIX
 make
 make install
-cd -
+popd
 
-make
-
-TA_INCLUDE_PATH=$TA_PATH/talib/include TA_LIBRARY_PATH=$TA_PATH/talib/lib python3 -m pip install . --no-deps --ignore-installed -vvv
-
+pushd wrapper
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib
+export TA_INCLUDE_PATH=$PREFIX/include
+export TA_LIBRARY_PATH=$PREFIX/lib
+python setup.py build
+python setup.py install --prefix=$PREFIX
+popd

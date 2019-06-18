@@ -1,26 +1,29 @@
 package:
-  name: "talib"
-  version: "0.0.1"
+  name: ta-lib
+  version: !!str 0.4.17
+  build: 5
 
 source:
-  path: .
-
-build:
-  number: 0
-#  script: "/bin/bash build.sh"
+  - url: https://github.com/mrjbq7/ta-lib/archive/TA_Lib-0.4.17.tar.gz
+    md5: 712242940ea994e632b409259c057d95
+    folder: wrapper
+  - url: http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+    md5: 308e53b9644213fc29262f36b9d3d9b9
+    folder: library
 
 requirements:
-  host:
-  - pip
-  - python=3.*
-  - setuptools
-  - numpy=1.16.*
-  - cython=0.29.*
-  - cmake
-  - gcc
-
+  build:
+    - python
+    - cython
+    - numpy x.x
   run:
-  - numpy=1.16.*
-  - cython=0.29.*
+    - python
+    - numpy x.x
 
-  #  - conda-forge::python-avro=1.8.*
+test:
+  imports:
+    - talib
+
+about:
+  home: http://github.com/mrjbq7/ta-lib
+  license: BSD License

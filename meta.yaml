@@ -1,6 +1,6 @@
 package:
   name: ta-lib
-  version: !!str 0.4.17
+  version: 0.4.17.1
   build: 6
 
 source:
@@ -13,12 +13,12 @@ source:
 
 requirements:
   build:
-    - python>=3.7.0
-    - cython>=0.29.7
-    - numpy>=0.16.4
+    - python=3.7.*
+    - cython=0.29.7
+    - numpy=1.16.4
   run:
-    - python>=3.7.0
-    - numpy>=0.16.4
+    - python=3.7.*
+    - numpy=1.16.*
 
 test:
   imports:
